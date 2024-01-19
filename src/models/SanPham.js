@@ -4,19 +4,20 @@ const mongoose_delete = require('mongoose-delete');
 const SanPham_Schema = new mongoose.Schema(
     {
         TenSP: { type: String, required: false },
-        // LoaiSP: { type: String, required: false },
         GiaBan: { type: Number, required: false },
         GiaCu: { type: Number },
         MoTa: { type: String, default: "Not thing" },
-        Sale_New: { type: String, default: "New" },
+        New_Hot: { type: String },
+        Size: { 
+            type: String, 
+            enum: ["S", "M", "L", "XL", "XXL"], 
+            default: "S" 
+        },
+        MauSac: { type: String, default: "Đen" },
         SoLuongTon: { type: Number, required: false  },
         SoLuongBan: { type: Number, required: false },
         SoLuotDanhGia: { type: Number, required: false, default: "1000" },
-        // Image: { ref: "HoaDon", type: mongoose.SchemaTypes.ObjectId, },
         Image: String,
-        // Image: {
-        //             data: Buffer,
-        //             contentType: String},
         IdLoaiSP: {ref: "LoaiSP", type: mongoose.SchemaTypes.ObjectId},
     },
     { 
