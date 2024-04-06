@@ -1,13 +1,19 @@
 const express = require('express');
-const { getHomeHienThi2, getHomeHienThi1 } = require("../controllers/homeController");
+const { getHomeAdmin} = require("../controllers/ADMIN/Home/homeAdmin");
+const { getHomeHienThi2, getTrangChu } = require("../controllers/homeController");
 const { getFormLoginKH } = require('../controllers/Login/loginKHController');
 
 
 const router = express.Router();
 //  -------------------------------------------
 
+// ADMIN 
+router.get("/ADMIN", getHomeAdmin)
+
+
+
 // TRANG CHU
-router.get("/", getHomeHienThi1)
+router.get("/", getTrangChu)
 router.get("/hien-thi-2-home", getHomeHienThi2)
 
 

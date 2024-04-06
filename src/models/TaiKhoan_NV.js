@@ -12,3 +12,4 @@ const TaiKhoan_NV_Schema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("TaiKhoan_NV", TaiKhoan_NV_Schema);
+

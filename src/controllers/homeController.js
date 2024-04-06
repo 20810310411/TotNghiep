@@ -1,7 +1,7 @@
 const SanPham = require("../models/SanPham")
 
 module.exports = {
-    getHomeHienThi1: async (req, res) => {
+    getTrangChu: async (req, res) => {
         res.render("home.ejs")
     },
 
