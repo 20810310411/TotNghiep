@@ -9,13 +9,17 @@ const { formLoginAdmin, LoginAdmin } = require("../controllers/Login/loginAdminC
 const { getQLSP, } = require("../controllers/ADMINQL/QL_SanPham/homeQLSPController");
 const { formInsertSP, nutThemSP, } = require("../controllers/ADMINQL/QL_SanPham/createSPController");
 const { formUpdateSP, nutSuaSP, } = require("../controllers/ADMINQL/QL_SanPham/editSPController");
+
+//  -------------------------------------------
+// HOME
+// HomeTrangChuController
+const { getTrangChu, } = require("../controllers/HomeTrangChu/homeController");
 // TrangSPController
 const { TrangSanPham, } = require("../controllers/TrangSP/TrangSPController");
 // Trang Chi tiết sản phẩm controller
 const { TrangChiTietSP, } = require("../controllers/ChiTietSP/chitietSPController");
-// HomeTrangChuController
-const { getTrangChu, } = require("../controllers/HomeTrangChu/homeController");
-//
+
+// Login khách hàng
 const { getFormLoginKH } = require('../controllers/Login/loginKHController');
 
 const router = express.Router();
@@ -25,6 +29,7 @@ const router = express.Router();
 router.get("/loginAdmin", formLoginAdmin)
 router.post("/login-Admin", LoginAdmin)
 router.get("/TrangChuAdmin", getTrangChuAdmin)
+
 // Quản lý sản phẩm
 router.get("/trangQLSP", getQLSP)
 router.get("/formThemSP", formInsertSP)
@@ -34,7 +39,7 @@ router.put("/SuaSP/:idSuaSP", nutSuaSP)
 
 
 
-
+//  -------------------------------------------
 // TRANG CHU
 router.get("/", getTrangChu)
 

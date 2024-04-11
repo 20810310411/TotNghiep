@@ -168,23 +168,42 @@
                         <div class="col-lg-3 col-md-6 special-grid best-seller">
                             <div class="products-single fix">
                                 <div class="box-img-hover">
-                                    <div class="type-lb">
-                                        <p class="sale">Sale</p>
-                                    </div>
-                                    <img style="height: 250px; width: 250px"
-                                        src="images/upload/<%= getRelativeImagePath(banchay.Image) %>" class="img-fluid"
-                                        alt="Image">
-                                    <div class="mask-icon">
-                                        <ul>
-                                            <li><a href="/ChiTietSP?id=<%= banchay._id %>" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                        class="fas fa-eye"></i></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                    title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                    title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                        </ul>
-                                        <a class="cart" href="#">Add to Cart</a>
-                                    </div>
+                                    <% if(banchay.ThuocTinh=='New' ) { %>
+                                        <div class="type-lb">
+                                            <p class="new">
+                                                <%= banchay.ThuocTinh %>
+                                            </p>
+                                        </div>
+                                        <% } else if(banchay.ThuocTinh=='Sale' ) { %>
+                                            <div class="type-lb">
+                                                <p class="sale">
+                                                    <%= banchay.ThuocTinh %>
+                                                </p>
+                                            </div>
+                                            <% } else { %>
+                                                <div class="type-lb">
+                                                    <p class="hot">
+                                                        <%= banchay.ThuocTinh %>
+                                                    </p>
+                                                </div>
+                                                <% } %>
+                                                    <img style="height: 250px; width: 250px"
+                                                        src="images/upload/<%= getRelativeImagePath(banchay.Image) %>"
+                                                        class="img-fluid" alt="Image">
+                                                    <div class="mask-icon">
+                                                        <ul>
+                                                            <li><a href="/ChiTietSP?id=<%= banchay._id %>"
+                                                                    data-toggle="tooltip" data-placement="right"
+                                                                    title="View"><i class="fas fa-eye"></i></a></li>
+                                                            <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                                    title="Compare"><i class="fas fa-sync-alt"></i></a>
+                                                            </li>
+                                                            <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                                    title="Add to Wishlist"><i
+                                                                        class="far fa-heart"></i></a></li>
+                                                        </ul>
+                                                        <a class="cart" href="#">Add to Cart</a>
+                                                    </div>
                                 </div>
                                 <div class="why-text">
                                     <a href="/ChiTietSP?id=<%= banchay._id %>">
@@ -192,12 +211,20 @@
                                             <%= banchay.TenSP %>
                                         </h4>
                                     </a>
-                                    <h5> <del style="font-size: 13px;
-                                        color: #666;">
-                                            <%= formatCurrency(banchay.GiaCu) %>
-                                        </del>
-                                        <%= formatCurrency(banchay.GiaBan) %>
-                                    </h5>
+                                    <% if(banchay.GiaCu== 0 ) { %>
+                                        <h5>
+                    
+                                            <%= formatCurrency(banchay.GiaBan) %>
+                                        </h5>
+                                        <% } else { %>
+                                            <h5>
+                                                <del style="font-size: 13px;
+                                            color: #666;">>
+                                                    <%= formatCurrency(banchay.GiaCu) %>
+                                                </del>
+                                                <%= formatCurrency(banchay.GiaBan) %>
+                                            </h5>
+                                            <% } %>
                                 </div>
                             </div>
                         </div>
@@ -207,16 +234,33 @@
                                 <div class="col-lg-3 col-md-6 special-grid top-featured">
                                     <div class="products-single fix">
                                         <div class="box-img-hover">
-                                            <div class="type-lb">
-                                                <p class="new">New</p>
-                                            </div>
+                                            <% if(noibat.ThuocTinh=='New' ) { %>
+                                                <div class="type-lb">
+                                                    <p class="new">
+                                                        <%= noibat.ThuocTinh %>
+                                                    </p>
+                                                </div>
+                                                <% } else if(noibat.ThuocTinh=='Sale' ) { %>
+                                                    <div class="type-lb">
+                                                        <p class="sale">
+                                                            <%= noibat.ThuocTinh %>
+                                                        </p>
+                                                    </div>
+                                                    <% } else { %>
+                                                        <div class="type-lb">
+                                                            <p class="hot">
+                                                                <%= noibat.ThuocTinh %>
+                                                            </p>
+                                                        </div>
+                                                        <% } %>
                                             <img style="height: 250px; width: 250px;"
                                                 src="images/upload/<%= getRelativeImagePath(noibat.Image) %>"
                                                 class="img-fluid" alt="Image">
                                             <div class="mask-icon">
                                                 <ul>
-                                                    <li><a href="/ChiTietSP?id=<%= noibat._id %>" data-toggle="tooltip" data-placement="right"
-                                                            title="View"><i class="fas fa-eye"></i></a></li>
+                                                    <li><a href="/ChiTietSP?id=<%= noibat._id %>" data-toggle="tooltip"
+                                                            data-placement="right" title="View"><i
+                                                                class="fas fa-eye"></i></a></li>
                                                     <li><a href="#" data-toggle="tooltip" data-placement="right"
                                                             title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                     <li><a href="#" data-toggle="tooltip" data-placement="right"
@@ -232,12 +276,20 @@
                                                     <%= noibat.TenSP %>
                                                 </h4>
                                             </a>
-                                            <h5> <del style="font-size: 13px;
-                                                color: #666;">
-                                                    <%= formatCurrency(noibat.GiaCu) %>
-                                                </del>
-                                                <%= formatCurrency(noibat.GiaBan) %>
-                                            </h5>
+                                            <% if(noibat.GiaCu== 0 ) { %>
+                                                <h5>
+                            
+                                                    <%= formatCurrency(noibat.GiaBan) %>
+                                                </h5>
+                                                <% } else { %>
+                                                    <h5>
+                                                        <del style="font-size: 13px;
+                                                    color: #666;">>
+                                                            <%= formatCurrency(noibat.GiaCu) %>
+                                                        </del>
+                                                        <%= formatCurrency(noibat.GiaBan) %>
+                                                    </h5>
+                                                    <% } %>
                                         </div>
                                     </div>
                                 </div>

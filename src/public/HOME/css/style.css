@@ -946,6 +946,13 @@
      font-weight: 700;
      text-transform: uppercase;
 }
+.type-lb .hot{
+    background: #a13939;
+    color: #ffffff;
+    padding: 2px 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
  .why-text{
      background: #f5f5f5;
      padding: 15px;
@@ -2189,7 +2196,7 @@
 }
  .new-account-login h5 {
      font-size: 18px;
-     color: #1111111;
+     color: #111111;
      font-weight: 600;
 }
  .new-account-login h5 a:hover{
