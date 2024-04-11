@@ -7,20 +7,26 @@ const SanPham_Schema = new mongoose.Schema(
         GiaBan: { type: Number, required: false },
         GiaCu: { type: Number },
         MoTa: { type: String, default: "Not thing" },
-        New_Hot: { type: String },
-        Size: { 
-            type: String, 
-            enum: ["S", "M", "L", "XL", "XXL"], 
-            default: "S" 
+        ThuocTinh: {
+            type: String,
+            enum: ["New", "Hot", "Sale"],
+            default: "New"
         },
-        MauSac: { type: String, default: "Đen" },
-        SoLuongTon: { type: Number, required: false  },
+        NB_BC: {
+            type: String,
+            enum: ["", "Nổi bật", "Bán chạy"],
+            default: ""
+        },
+        SoLuongTon: { type: Number, required: false },
         SoLuongBan: { type: Number, required: false },
         SoLuotDanhGia: { type: Number, required: false, default: "1000" },
         Image: String,
-        IdLoaiSP: {ref: "LoaiSP", type: mongoose.SchemaTypes.ObjectId},
+        Image1: String,
+        Image2: String,
+        IdLoaiSP: { ref: "LoaiSP", type: mongoose.SchemaTypes.ObjectId },
+
     },
-    { 
+    {
         timestamps: true,   // createAt, updateAt
     },
 );

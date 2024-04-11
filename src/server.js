@@ -2,7 +2,6 @@ require('dotenv').config();
 const express = require('express')
 const configViewEngine = require('./config/viewEngine');
 const homeRoutes = require('./routes/homeRouter');
-const homeAPIRoutes = require('./routes/homeAPI');
 
 const connection = require('./config/database');
 const mongoose = require('mongoose')
@@ -25,10 +24,10 @@ const oneDay = 1000 * 60 * 60 * 24;     // lưu phiên trong 1 ngày
 app.use(session({
     secret: 'secret-key',  // Chuỗi bí mật để mã hóa phiên
     saveUninitialized: true,
-    cookie: { 
-        maxAge: oneDay, 
+    cookie: {
+        maxAge: oneDay,
     },     // đặt thời gian hết hạn của cookie
-    resave: true  
+    resave: true
 }));
 app.use(cookieParser());
 
@@ -51,9 +50,9 @@ app.use('/', homeRoutes);
         app.listen(port, hostname, () => {
             console.log(`http://localhost:${port}`)
         })
-    } catch(error) {
+    } catch (error) {
         console.log(">>> LỖI RỒI CỤ: ", error);
-    }  
+    }
 })();
 // app.listen(port, hostname, () => {
 //     console.log(`ĐÃ CHẠY ...   >>>  http://localhost:${port}`)

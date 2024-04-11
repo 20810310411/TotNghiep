@@ -2,7 +2,7 @@ const mongoose_delete = require('mongoose-delete');
 const mongoose = require('mongoose');
 
 const TaiKhoan_Admin_Schema = new mongoose.Schema({
-  TenDangNhap: {
+  TaiKhoan: {
     type: String,
 
     required: true,
@@ -10,8 +10,9 @@ const TaiKhoan_Admin_Schema = new mongoose.Schema({
   },
   MatKhau: { type: String, required: true },
   HoTen: { type: String },
+  SDT: { type: String },
+  Note: { type: String },
   NgayTao: { type: Date, default: Date.now(), immutable: true },
-
 });
 
 TaiKhoan_Admin_Schema.plugin(mongoose_delete, { TaiKhoan_Admin_Schema: 'all' });

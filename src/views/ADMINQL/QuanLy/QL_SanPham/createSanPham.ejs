@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Blank</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="CHAY/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="CHAY/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include("../../partials/SlidebarAdmin.ejs") %>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <%- include("../../partials/TopbarAdmin.ejs") %>
+                        <!-- End of Topbar -->
+
+                        <!-- Begin Page Content -->
+                        <div class="container-fluid">
+
+                            <!-- Page Heading -->
+                            <h1 class="h3 mb-4 text-gray-800">Trang quản lý sản phẩm</h1>
+
+                        </div>
+                        <!-- /.container-fluid -->
+
+                        <div class="container">
+                            <h4>Thêm mới dữ liệu</h4>
+                            <div class="container-fluid py-3">
+                                <form enctype="multipart/form-data" id="formThemSP">
+
+
+                                    <div class="mb-3">
+                                        <label for="TenSP" class="form-label">Tên sản phẩm <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <input type="text" class="form-control" id="TenSP"
+                                            placeholder="Nhập tên sản phẩm..." name="TenSP" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="GiaBan" class="form-label">Giá bán <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <input type="number" class="form-control" id="GiaBan" placeholder="Nhập giá mới"
+                                            name="GiaBan" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="GiaCu" class="form-label">Giá cũ </label>
+                                        <input type="number" class="form-control" id="GiaCu" placeholder="Nhập giá cũ"
+                                            name="GiaCu">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="SoLuongTon" class="form-label">Số lượng tồn <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <input style="width: 120px; font-size: 18px;" type="number" value="1" min="1"
+                                            class="form-control" id="SoLuongTon" name="SoLuongTon" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="ThuocTinh" class="form-label">Thuộc tính <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <select id="ThuocTinh" name="ThuocTinh" class="form-control"
+                                            aria-label="Default select example" style="width: 320px; font-size: 18px;">
+                                            <option value="New" selected>New</option>
+                                            <option value="Hot">Hot</option>
+                                            <option value="Sale">Sale</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="IdLoaiSP" class="form-label">Loại sản phẩm <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <select id="IdLoaiSP" name="IdLoaiSP" class="form-control"
+                                            aria-label="Default select example" style="width: 320px; font-size: 18px;">
+                                            <% loaiSP.forEach(function(loaiSP) { %>
+                                                <option value="<%= loaiSP._id %>" selected>
+                                                    <%= loaiSP.TenLoaiSP %>
+                                                </option>
+                                                <% }); %>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="NB_BC" class="form-label">Nổi bật - Bán chạy </label>
+                                        <select id="NB_BC" name="NB_BC" class="form-control"
+                                            aria-label="Default select example" style="width: 320px; font-size: 18px;">
+                                            <option value="" selected></option>
+                                            <option value="Nổi bật">Nổi bật</option>
+                                            <option value="Bán chạy">Bán chạy</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Image" class="form-label">Hình ảnh 1 <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <input type="file" class="form-control" id="Image" name="Image"
+                                            style="border: none;" multiple required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Image1" class="form-label">Hình ảnh 2 <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <input type="file" class="form-control" id="Image1" name="Image1"
+                                            style="border: none;" multiple required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Image2" class="form-label">Hình ảnh 3 <span
+                                                style="color: red;font-size: 18px;">*</span></label>
+                                        <input type="file" class="form-control" id="Image2" name="Image2"
+                                            style="border: none;" multiple required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="MoTa" class="form-label">Mô tả nội dung</label>
+                                        <textarea name="MoTa" id="MoTa" class="form-control">
+
+                                </textarea>
+                                    </div>
+
+                                    <a onclick="history.go(-1);" class="btn btn-dark">Trở Về </a>
+
+                                    <button type="submit" class="btn btn-success">Tạo mới</button>
+                            </div>
+                            </form>
+                        </div>
+                </div>
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="CHAY/vendor/jquery/jquery.min.js"></script>
+    <script src="CHAY/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="CHAY/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="CHAY/js/sb-admin-2.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnSubmit = document.getElementById('formThemSP');
+
+            btnSubmit.addEventListener('submit', function (event) {
+                event.preventDefault(); // Ngăn chặn hành vi mặc định của form submit
+
+                // Lấy các giá trị từ form
+                const TenSP = document.getElementById('TenSP').value;
+                const GiaBan = document.getElementById('GiaBan').value;
+                const GiaCu = document.getElementById('GiaCu').value;
+                const SoLuongTon = document.getElementById('SoLuongTon').value;
+                const ThuocTinh = document.getElementById('ThuocTinh').value;
+                const IdLoaiSP = document.getElementById('IdLoaiSP').value;
+                const NB_BC = document.getElementById('NB_BC').value;
+                const MoTa = document.getElementById('MoTa').value;
+                // Lấy giá trị từ CKEditor
+                // const MoTa = CKEDITOR.instances.MoTa.getData();
+                const Image = document.getElementById('Image').files[0]; // Đây là file ảnh
+                const Image1 = document.getElementById('Image1').files[0]; // Đây là file ảnh
+                const Image2 = document.getElementById('Image2').files[0]; // Đây là file ảnh
+
+                // Tạo formData để chứa dữ liệu form và file ảnh
+                const formData = new FormData();
+                formData.append('TenSP', TenSP);
+                formData.append('IdLoaiSP', IdLoaiSP);
+                formData.append('GiaBan', GiaBan);
+                formData.append('GiaCu', GiaCu);
+                formData.append('SoLuongTon', SoLuongTon);
+                formData.append('ThuocTinh', ThuocTinh);
+                formData.append('NB_BC', NB_BC);
+                formData.append('MoTa', MoTa);
+                formData.append('Image', Image);
+                formData.append('Image1', Image1);
+                formData.append('Image2', Image2);
+
+
+                // Gửi request fetch để tạo mới sản phẩm
+                fetch('/ThemSP', {
+                    method: 'POST',
+                    body: formData
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(data.message);
+                            window.location.href = '/TrangQLSP';
+                        } else {
+                            alert(data.message);
+                            btnSubmit.reset();
+                        }
+                    })
+            });
+        });
+    </script>
+</body>
+
+</html>
