@@ -24,7 +24,6 @@ const SanPham_Schema = new mongoose.Schema(
         Image1: String,
         Image2: String,
         IdLoaiSP: { ref: "LoaiSP", type: mongoose.SchemaTypes.ObjectId },
-
     },
     {
         timestamps: true,   // createAt, updateAt

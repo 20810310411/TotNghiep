@@ -1,4 +1,5 @@
 const SanPham = require("../../models/SanPham");
+const LoaiSP = require("../../models/LoaiSP");
 
 require('rootpath')()
 module.exports = {
@@ -14,9 +15,20 @@ module.exports = {
             const relativePath = absolutePath ? absolutePath.replace(rootPath, '').replace(/\\/g, '/').replace(/^\/?images\/upload\//, '') : '';
             return relativePath;
         }
-        let allsp = await SanPham.find().exec()
+        // hiển thị kiểu phân loại
+        let loaiSP = await LoaiSP.find().exec();
+        const tongSL = [];
+        for (const loaiSp of loaiSP) {
+            const soLuongSanPham = await SanPham.countDocuments({ IdLoaiSP: loaiSp._id });
+            tongSL.push({ TenLoaiSP: loaiSp.TenLoaiSP, soLuongSanPham, IDLoaiSP: loaiSp._id });
+        }
+        
+        let idPL = req.query.idPL
+        req.session.idPL = idPL;
+        let allsp = await SanPham.find({IdLoaiSP: idPL}).exec()
+        
         res.render("HOME/Layouts/TrangSP/TrangSP.ejs", {
-            allsp, formatCurrency, getRelativeImagePath, rootPath: '/'
+            allsp, tongSL, tongSLcon, formatCurrency, getRelativeImagePath, rootPath: '/'
         })
     },
 

@@ -52,59 +52,22 @@
 
                         <div class="container">
                             <h4>Quản lý dữ liệu</h4>
-                            <a href="/formThemSP" id="addButton" class="btn btn-success">Thêm</a>
+                            <a href="/formThemNhomTLSP" id="addButton" class="btn btn-success">Thêm</a>
                             <table class="table table-hover">
                                 <thead>
                                     <tr style=" color: black; font-size: 18px; ">
-                                        <th style="text-align: center; vertical-align: middle;">Hình Ảnh</th>
-                                        <th style="width: 150px;text-align: center; vertical-align: middle;">Tên SP</th>
-                                        <th style="text-align: center; vertical-align: middle;">Giá mới</th>
-                                        <th style="text-align: center; vertical-align: middle;">Giá cũ</th>
-                                        <th style="text-align: center; vertical-align: middle;">Số lượng tồn</th>
-                                        <th style="text-align: center; vertical-align: middle;">Nhóm loại SP</th>
-                                        <th style="text-align: center; vertical-align: middle;">Loại SP</th>
-                                        <th style="text-align: center; vertical-align: middle;">Thuộc Tính</th>
-                                        <th style="text-align: center; vertical-align: middle;">NB_BC</th>
-                                        <th style="width: 200px; text-align: center; vertical-align: middle;">Mô tả
+                                        <th style="width: 150px;text-align: center; vertical-align: middle;">Tên Nhóm Sản Phẩm</th>
                                         </th>
                                     </tr>
                                 <tbody>
                                     <% all.forEach(function(allsp, index) { %>
                                         <tr>
-                                            <td style="width: 150px; text-align: center; vertical-align: middle;">
-                                                <img src="images/upload/<%= getRelativeImagePath(allsp.Image) %>"
-                                                    class="img-fluid" alt="Image">
-                                            </td>
-                                            <td style="width: 150px; text-align: center; vertical-align: middle;">
-                                                <%=allsp.TenSP %>
-                                            </td>
                                             <td style="text-align: center; vertical-align: middle;">
-                                                <%= formatCurrency(allsp.GiaBan) %>
-                                            </td>
-                                            <td style="text-align: center; vertical-align: middle;">
-                                                <%= formatCurrency(allsp.GiaCu) %>
-                                            </td>
-                                            <td style="text-align: center; vertical-align: middle;">
-                                                <%=allsp.SoLuongTon %>
-                                            </td>
-                                            <td style="text-align: center; vertical-align: middle;">
-                                                <%= data1[index] %>
-                                            </td>
-                                            <td style="text-align: center; vertical-align: middle;">
-                                                <%=allsp.TenLoaiSP %>
-                                            </td>
-                                            <td style="text-align: center; vertical-align: middle;">
-                                                <%=allsp.ThuocTinh %>
-                                            </td>
-                                            <td style="text-align: center; vertical-align: middle;">
-                                                <%=allsp.NB_BC %>
-                                            </td>
-                                            <td style="width: 200px; text-align: center; vertical-align: middle;">
-                                                <%=allsp.MoTa %>
+                                                <%=allsp.TenNhomLoaiSP %>
                                             </td>
                                             <td>
                                                 <a class="btn btn-success button-SUA-XOA"
-                                                    href="/formSuaSP?idSuaSP=<%= allsp._id %>">Sửa</a>
+                                                    href="/formSuaNhomTLSP?idSuaNhomTLSP=<%= allsp._id %>">Sửa</a>
 
                                                 <form action="/delete-sp" method="post">
                                                     <input type="hidden" name="idRemove" value="">
@@ -165,18 +128,6 @@
     <!-- Custom scripts for all pages-->
     <script src="CHAY/js/sb-admin-2.min.js"></script>
 
-    <script>
-        // rút gọn file ảnh chỉ lấy tên ảnh, ví dụ: abc.png
-        function getRelativeImagePath(absolutePath) {
-            const rootPath = '<%= rootPath.replace(/\\/g, "\\\\") %>';
-            const relativePath = absolutePath ? absolutePath.replace(rootPath, '').replace(/\\/g, '/').replace(/^\/?images\/upload\//, '') : '';
-            return relativePath;
-        }
-        // format tiền tệ
-        function formatCurrency(amount) {
-            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
-        }
-    </script>
 </body>
 
 </html>

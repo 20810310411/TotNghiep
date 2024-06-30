@@ -4,6 +4,7 @@ const mongoose_delete = require('mongoose-delete');
 const LoaiSP_Schema = new mongoose.Schema(
     {
         TenLoaiSP: { type: String, required: false },
+        IdNhomLoaiSP: { ref: "NhomLoaiSP", type: mongoose.SchemaTypes.ObjectId },
     },
 
 );

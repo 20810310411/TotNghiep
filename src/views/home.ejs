@@ -103,19 +103,19 @@
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="shop-cat-box">
                             <img class="img-fluid" src="HOME/images/categories_img_01.jpg" alt="" />
-                            <a class="btn hvr-hover" href="#">Chó Cảnh</a>
+                            <a class="btn hvr-hover" href="/TrangSP?idPL=6617c3d3fdd896abb8d4cee8">Chó Cảnh</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="shop-cat-box">
                             <img class="img-fluid" src="HOME/images/categories_img_02.jpg" alt="" />
-                            <a class="btn hvr-hover" href="#">Mèo Cảnh</a>
+                            <a class="btn hvr-hover" href="/TrangSP?idPL=6617c3e2fdd896abb8d4cee9">Mèo Cảnh</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                         <div class="shop-cat-box">
                             <img class="img-fluid" src="HOME/images/categories_img_03.jpg" alt="" />
-                            <a class="btn hvr-hover" href="#">Phụ Kiện</a>
+                            <a class="btn hvr-hover" href="/TrangSP?idPL=6617c3f1fdd896abb8d4ceea">Phụ Kiện</a>
                         </div>
                     </div>
                 </div>
@@ -211,9 +211,9 @@
                                             <%= banchay.TenSP %>
                                         </h4>
                                     </a>
-                                    <% if(banchay.GiaCu== 0 ) { %>
+                                    <% if(banchay.GiaCu==0 ) { %>
                                         <h5>
-                    
+
                                             <%= formatCurrency(banchay.GiaBan) %>
                                         </h5>
                                         <% } else { %>
@@ -253,22 +253,26 @@
                                                             </p>
                                                         </div>
                                                         <% } %>
-                                            <img style="height: 250px; width: 250px;"
-                                                src="images/upload/<%= getRelativeImagePath(noibat.Image) %>"
-                                                class="img-fluid" alt="Image">
-                                            <div class="mask-icon">
-                                                <ul>
-                                                    <li><a href="/ChiTietSP?id=<%= noibat._id %>" data-toggle="tooltip"
-                                                            data-placement="right" title="View"><i
-                                                                class="fas fa-eye"></i></a></li>
-                                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                            title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                            title="Add to Wishlist"><i class="far fa-heart"></i></a>
-                                                    </li>
-                                                </ul>
-                                                <a class="cart" href="#">Add to Cart</a>
-                                            </div>
+                                                            <img style="height: 250px; width: 250px;"
+                                                                src="images/upload/<%= getRelativeImagePath(noibat.Image) %>"
+                                                                class="img-fluid" alt="Image">
+                                                            <div class="mask-icon">
+                                                                <ul>
+                                                                    <li><a href="/ChiTietSP?id=<%= noibat._id %>"
+                                                                            data-toggle="tooltip" data-placement="right"
+                                                                            title="View"><i class="fas fa-eye"></i></a>
+                                                                    </li>
+                                                                    <li><a href="#" data-toggle="tooltip"
+                                                                            data-placement="right" title="Compare"><i
+                                                                                class="fas fa-sync-alt"></i></a></li>
+                                                                    <li><a href="#" data-toggle="tooltip"
+                                                                            data-placement="right"
+                                                                            title="Add to Wishlist"><i
+                                                                                class="far fa-heart"></i></a>
+                                                                    </li>
+                                                                </ul>
+                                                                <a class="cart" href="#">Add to Cart</a>
+                                                            </div>
                                         </div>
                                         <div class="why-text">
                                             <a href="/ChiTietSP?id=<%= noibat._id %>">
@@ -276,9 +280,9 @@
                                                     <%= noibat.TenSP %>
                                                 </h4>
                                             </a>
-                                            <% if(noibat.GiaCu== 0 ) { %>
+                                            <% if(noibat.GiaCu==0 ) { %>
                                                 <h5>
-                            
+
                                                     <%= formatCurrency(noibat.GiaBan) %>
                                                 </h5>
                                                 <% } else { %>

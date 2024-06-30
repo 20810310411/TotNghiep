@@ -1,7 +1,25 @@
-<a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="true" aria-controls="sub-men1">Fruits & Drinks <small class="text-muted">(100)</small>
-</a>
+<% tongSL.forEach(function(tongSL) { %>
+    <a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="true"
+        aria-controls="sub-men1"><%= tongSL.TenLoaiSP %> <small class="text-muted"><%= tongSL.soLuongSanPham %></small>
+    </a>
     <div class="collapse show" id="sub-men1" data-parent="#list-group-men">
         <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">Fruits 1 <small class="text-muted">(50)</small></a>
+            <a href="#" class="list-group-item list-group-item-action active">Fruits 1 <small
+                    class="text-muted">(50)</small></a>
         </div>
     </div>
+    <% }); %>
+
+        <% tongSL.forEach(function(tongSL) { %>
+            <li>
+                <input type="hidden" name="idPL" value="<%= tongSL.IDLoaiSP %>">
+                <a href="/trangphanloaisanpham?idPL=<%= tongSL.IDLoaiSP %>"
+                    style="display: flex;justify-content: space-between;">
+                    <span>
+                        <%= tongSL.TenLoaiSP %>
+                    </span>
+                    <span>(<%= tongSL.soLuongSanPham %>)</span>
+                </a>
+
+            </li>
+            <% }); %>

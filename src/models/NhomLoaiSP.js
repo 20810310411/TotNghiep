@@ -1,16 +1,15 @@
-// const mongoose = require('mongoose')
-// const mongoose_delete = require('mongoose-delete');
+const mongoose = require('mongoose')
+const mongoose_delete = require('mongoose-delete');
 
-// const LoaiSP_Schema = new mongoose.Schema(
-//     {
-//         TenNhomLoaiSP: { type: String, required: false },
-//     },
+const NhomLoaiSP_Schema = new mongoose.Schema(
+    {
+        TenNhomLoaiSP: { type: String, required: false },
+    },
+);
 
-// );
+// Override all methods
+NhomLoaiSP_Schema.plugin(mongoose_delete, { overrideMethods: 'all' });
 
-// // Override all methods
-// LoaiSP_Schema.plugin(mongoose_delete, { overrideMethods: 'all' });
+const NhomLoaiSP = mongoose.model('NhomLoaiSP', NhomLoaiSP_Schema);
 
-// const LoaiSP = mongoose.model('LoaiSP', LoaiSP_Schema);
-
-// module.exports = LoaiSP;
+module.exports = NhomLoaiSP;
